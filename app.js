@@ -1,37 +1,35 @@
-const express = require('express');
-const mongoose = require('mongoose');
+import express from 'express';
+import mongoose from 'mongoose';
+import indexRouter from './routes/index.js';
+import prologueRouter from './routes/prologue.js';
+import decision1Router from './routes/decision-1.js';
+import decision2Router from './routes/decision-2.js';
+import decision3Router from './routes/decision-3.js';
+import decision4Router from './routes/decision-4.js';
+import decision5Router from './routes/decision-5.js';
+import decision6Router from './routes/decision-6.js';
+import decision7Router from './routes/decision-7.js';
+import decision8Router from './routes/decision-8.js';
+import decision9Router from './routes/decision-9.js';
+import decision10Router from './routes/decision-10.js';
+import decision11Router from './routes/decision-11.js';
+import decision12Router from './routes/decision-12.js';
+import decision13Router from './routes/decision-13.js';
+import decision14Router from './routes/decision-14.js';
+import decision15Router from './routes/decision-15.js';
+import decision16Router from './routes/decision-16.js';
+import endingRouter from './routes/ending.js';
+
 const app = express();
-const PORT = 4200;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/roommateSimulator', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/dating-sim', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Import routes
-const indexRouter = require('./routes/index');
-const prologueRouter = require('./routes/prologue');
-const decision1Router = require('./routes/decision-1');
-const decision2Router = require('./routes/decision-2');
-const decision3Router = require('./routes/decision-3');
-const decision4Router = require('./routes/decision-4');
-const decision5Router = require('./routes/decision-5');
-const decision6Router = require('./routes/decision-6');
-const decision7Router = require('./routes/decision-7');
-const decision8Router = require('./routes/decision-8');
-const decision9Router = require('./routes/decision-9');
-const decision10Router = require('./routes/decision-10');
-const decision11Router = require('./routes/decision-11');
-const decision12Router = require('./routes/decision-12');
-const decision13Router = require('./routes/decision-13');
-const decision14Router = require('./routes/decision-14');
-const decision15Router = require('./routes/decision-15');
-const decision16Router = require('./routes/decision-16');
-const endingRouter = require('./routes/ending');
-
-// Set up middleware
+// Configure middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Set up routes
+// Configure routes
 app.use('/', indexRouter);
 app.use('/prologue', prologueRouter);
 app.use('/decision-1', decision1Router);
@@ -53,6 +51,4 @@ app.use('/decision-16', decision16Router);
 app.use('/ending', endingRouter);
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
-});
+app.listen(4200, () => console.log('Server started on port 4200'));
