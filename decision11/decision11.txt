@@ -1,0 +1,4 @@
+Welcome to Decision Block 1.
+
+Option 1: [Choice 1]
+Option 2: [Choice 2]
